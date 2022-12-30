@@ -115,4 +115,164 @@ function nextInLine(arr, item) {
   cc("k");
   cc("A");
   console.log(cc(4));
+
+  // classes-----------------------------
+var ourDog = {
+    name: "camper",
+    legs: "4",
+    tails: 1,
+    friends: ["everything!"],
+  };
+  
+  var myDog = {
+    name: "sparkie",
+    legs: "2",
+    tails: 2,
+    friends: [],
+  };
+  
+  var dogTail = myDog.tails;
+  var entreeValue = myDog["name"];
+  var enterValue = myDog["name"];
+  console.log(dogTail);
+  console.log(entreeValue);
+  
+  var testObj = {
+    12: "Namath",
+    16: "Montana",
+    19: "Unitas",
+  };
+  
+  var playerNumber = 16;
+  var player = testObj[playerNumber];
+  
+  myDog.name = "Happy Sparkie";
+  var enterValue = myDog["name"];
+  console.log(enterValue);
+  
+  ourDog.bark = "bow-bow";
+  myDog["bark"] = "woof!";
+  
+  delete ourDog.bark;
+  
+  function phoneticLookup(val) {
+    var result = "";
+  
+    var lookup = {
+      alpha: "Adams",
+      bravo: "Boston",
+      charlie: "Chicago",
+      delta: "Denver",
+      echo: "Easy",
+      foxtrot: "Frank",
+    };
+    result = lookup[val];
+    return result;
+  }
+  
+  console.log(phoneticLookup("charlie"));
+  
+  var myObj = {
+    gift: "pony",
+    pet: "kitten",
+    bed: "sleigh",
+  };
+  
+  function checkObj(checkProp) {
+    if (myObj.hasOwnProperty(checkProp)) {
+      return myObj[checkProp];
+    } else {
+      return "Not Found";
+    }
+  }
+  
+  console.log(checkObj("pet"));
+  
+  // manipulating complex objects-----------------
+  
+  var myMusic = [
+    {
+      artist: "Billy Joel",
+      title: "Piano Man",
+      release_year: 1973,
+      formats: ["CD", "8T", "LP"],
+      gold: true,
+    },
+    {
+      artist: "Beau Carnes",
+      title: "Cereal Man",
+      release_year: 2001,
+      formats: ["YouTube videos"],
+    },
+  ];
+  
+  // accessing nested objects-----------------
+  // when we hav objects within objects
+  var myStorage = {
+    car: {
+      inside: {
+        "glove box": "maps",
+        "passenger seat": "crumbs",
+      },
+      outside: {
+        trunk: "jack",
+      },
+    },
+  };
+  
+  var carContents = myStorage.car.inside;
+  // it is preferred to use bracket notation to accesss the object property instead of dot as shown below
+  var gloveBoxcontents = myStorage.car.inside["glove box"];
+  console.log(carContents);
+  console.log(gloveBoxcontents);
+  
+  var myPlants = [
+    {
+      type: "flowers",
+      list: ["rose", "tulip", "dandelion"],
+    },
+    {
+      type: "trees",
+      list: ["fir", "pine", "birch"],
+    },
+  ];
+  
+  var secondTree = myPlants[1].list[1];
+  console.log(secondTree);
+  
+  var collection = {
+    245: {
+      album: "slippery when met",
+      artist: "Bon Jovi",
+      tracks: ["Let It Rock", "You Give Love a Bad Name"],
+    },
+    565: {
+      album: "1999",
+      artist: "Prince",
+      tracks: ["1999", "Little Red Corvette"],
+    },
+    135: {
+      artist: "Robert Palmer",
+      tracks: [],
+    },
+    567: {
+      album: "ABBA Gold",
+    },
+  };
+  // keep a copy of collection for trees-------------
+  var collectionCopy = JSON.parse(JSON.stringify(collection));
+  
+  function updateRecords(id, prop, value) {
+    if (value === "") {
+      delete collection[id][prop];
+    } else if (prop === "tracks") {
+      collection[id][prop] = collection[id][prop] || [];
+      collection[id][prop].push(value);
+    } else {
+      collection[id][prop] = value;
+    }
+    return collection;
+  }
+  updateRecords(135, "tracks", "test");
+  console.log(updateRecords(567, "artist", "ABBA"));
   

@@ -5,3 +5,4 @@
 - Symbols used mostly in js are shown.
 - Added operators like shift, unshift, pop and push.
 - Functions, immitating queues, counting cards and booleans.
+- All about classes and objects with how to work with classes.
