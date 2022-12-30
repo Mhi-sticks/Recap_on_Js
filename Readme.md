@@ -9,3 +9,4 @@
 - Loops: Types and uses in javascript also making a profile lookup.
 - Generating random numbers and using parseint with using the spread and rest operators.
 - Destructuring in js and how to use string literals.
+- Using functions and arrays to print even numbers in a given array.
