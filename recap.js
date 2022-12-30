@@ -350,3 +350,147 @@ function lookUpProfile(name, prop) {
 
 var data = lookUpProfile("Akira", "likes");
 console.log(data);
+
+// generate random fractions -----------------------
+// Math.random gives random decimals
+function randomFraction() {
+    return Math.random();
+  }
+  
+  console.log(randomFraction());
+  
+  // generate random whole numbers -----------------------
+  // Math.floor rounds down to the nearest whole number
+  var randomNumberBetween0an19 = Math.floor(Math.random() * 20);
+  
+  function randomWholeNum() {
+    return Math.floor(Math.random() * 20);
+  }
+  
+  console.log(randomWholeNum());
+  
+  // generate random whole numbers within a range
+  function ourRandomRange(ourMin, ourMax) {
+    return Math.floor(Math.random() * (ourMax - ourMin + 1)) + ourMin;
+  }
+  
+  var ourRandom = ourRandomRange(1, 9);
+  
+  function randomRange(myMin, myMax) {
+    return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+  }
+  
+  var myRandom = randomRange(5, 15);
+  console.log(ourRandom);
+  console.log(myRandom);
+  
+  // use the paseint function--------------------------
+  function convertToNum(str) {
+    return parseInt(str);
+  }
+  console.log(convertToNum("56"));
+  
+  // using the parseint function with a radix-----------
+  function convertToInteger(str) {
+    return parseInt(str, 2);
+  }
+  console.log(convertToInteger("10011"));
+  
+  // using the conditional ternary operator------------------
+  // condition ? statement-if-true : statement-if-false -------
+  function checkEqual(a, b) {
+    return a === b ? true : false;
+  }
+  
+  function checkEqual(a, b) {
+    return a === b;
+  }
+  // the 2 functions above do the same thing
+  console.log(checkEqual(1, 1));
+  
+  // using multiple conditional ternary operator-------
+  function checkSign(num) {
+    return num > 0 ? "positive" : num < 0 ? "negative" : "zero";
+  }
+  console.log(checkSign(10));
+  
+  // const prevents object mutation---------
+  function freezeObj() {
+    "use strict";
+    const MATH_CONSTANTS = {
+      PI: 3.142,
+    };
+    // Object.freeze(MATH_CONSTANTS);to stop the constant from being chamged
+    try {
+      MATH_CONSTANTS.PI = 99;
+    } catch (ex) {
+      console.log(ex);
+    }
+    return MATH_CONSTANTS.PI;
+  }
+  const PI = freezeObj();
+  
+  console.log(PI);
+  
+  // arrow functions for concise anonymous functions-------
+  
+  // to do that, you remove the function word and place "=>" after the brackets "()"
+  var magic = function () {
+    return new Date();
+  };
+  
+  var magic = () => new Date();
+  
+  var magic = () => {
+    return new Date();
+  };
+  // three functions above are the same
+  // if you're returning only 1 value, you can remove the return keyword and the curly braces "{}"
+  
+  // arrow functions with parameters---------------
+  const myConcat = (arr1, arr2) => arr1.concat(arr2);
+  
+  console.log(myConcat([1, 2], [3, 4, 5]));
+  
+  // write higher order arrow functions------------------
+  const realNumberArray = [4, 5.6 - 9.8, 3.14, 42, 6, 8.34, -2];
+  
+  const squareList = (arr) => {
+    const squaredIntegers = arr
+      .filter((num) => Number.isInteger(num) && num > 0)
+      .map((x) => x * x);
+    return squaredIntegers;
+  };
+  
+  const squaredIntegers = squareList(realNumberArray);
+  console.log(squaredIntegers);
+  
+  const increment = (function () {
+    return function increment(number, value = 1) {
+      return number + value;
+    };
+  })();
+  console.log(increment(5, 2));
+  console.log(increment(5));
+  
+  // using the rest operator with function parameters
+  const sum = (function () {
+    /* rest operator */
+    return function sum(...args) {
+      //   return function sum(x, y, z) {
+      // const args = [x, y, z];
+      return args.reduce((a, b) => a + b, 0);
+    };
+  })();
+  console.log(sum(1, 2, 3));
+  
+  // using the spread operator to evaluate arrays in-place
+  const arr1 = ["JAN", "FEB", "MAR", "APR", "MAY"];
+  let arr2;
+  (function () {
+    arr2 = [...arr1]; //spread operator
+    arr1[0] = "potatoe";
+  })();
+  console.log(arr2); //result is [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY' ]
+
+  

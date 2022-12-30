@@ -7,3 +7,4 @@
 - Functions, immitating queues, counting cards and booleans.
 - All about classes and objects with how to work with classes.
 - Loops: Types and uses in javascript also making a profile lookup.
+- Generating random numbers and using parseint with using the spread and rest operators.
