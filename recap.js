@@ -493,4 +493,225 @@ function randomFraction() {
   })();
   console.log(arr2); //result is [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY' ]
 
-  
+  // using destructing assignment to assign variables from objects
+var voxel = { x: 3.6, y: 7.4, z: 6.54 };
+
+var x = voxel.x;
+var y = voxel.y;
+var z = voxel.z;
+
+const { x: a, y: b, z: c } = voxel; //destructuring sentence
+
+const AVG_TEMPERATURES = {
+  today: 77.5,
+  tomorrow: 79,
+};
+
+function getTempOfTmrw(avgTemperatures) {
+  "use strict";
+
+  const { tomorrow: tempOfTomorrow } = avgTemperatures;
+  return tempOfTomorrow;
+}
+
+console.log(getTempOfTmrw(AVG_TEMPERATURES));
+
+//destructuring assignment with nexted objects
+const LOCAL_FORCAST = {
+  today: { min: 72, max: 83 },
+  tomorrow: { min: 73.3, max: 84.6 },
+};
+
+function getMaxOfTmrw(forecast) {
+  "use strict";
+
+  const {
+    tomorrow: { max: MaxOfTomorrow },
+  } = forecast;
+
+  return MaxOfTomorrow;
+}
+
+console.log(getMaxOfTmrw(LOCAL_FORCAST));
+
+// using destructuring to assign variables from arrays
+const [l, m, , n] = [1, 2, 3, 4, 5, 6];
+console.log(l, m, n);
+
+(u = 8), (v = 6);
+(() => {
+  "use strict";
+  [u, v] = [v, u];
+})();
+console.log(u);
+console.log(v);
+
+// using destructuring with rest operator
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function removeFirstTwo(list) {
+  const [, , ...arrs] = list;
+  return arrs;
+}
+const arrs = removeFirstTwo(source);
+console.log(arrs);
+console.log(source);
+
+// using destructuring assignment to pass an object as a function's parameters
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85,
+};
+const half = (function () {
+  return function half({ max, min }) {
+    return (max + min) / 2.0;
+  };
+})();
+console.log(stats);
+console.log(half(stats));
+
+// creating strings using tempelate literals
+const person = {
+  name: "Zodiac Hasbro",
+  age: 56,
+};
+
+// template literal with multi-line and string interpolation
+const greeting = `Hello, my name is ${person.name}!
+I am ${person.age} years old.`;
+
+console.log(greeting);
+
+const result = {
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "linebreak"],
+  skipped: ["id-blacklist", "no-dup-keys"],
+};
+function makeList(arr) {
+  const resultDisplayArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    resultDisplayArray.push(`<li class="text-warning>${arr[i]}</li>`);
+  }
+
+  return resultDisplayArray;
+}
+// makeList(result.failure) should return:
+// [`<li class="text-warning"> no-var</li>`
+// `<li class="text-warning"> var-on-top</li>`
+// `<li class="text-warning"> linebreak</li>`]
+
+const resultDisplayArray = makeList(result.failure);
+console.log(resultDisplayArray);
+// write concise object literal declarations using simple fields
+const createPerson = (name, age, gender) => ({ name, age, gender });
+// {
+//   return {
+//     name: name,
+//     age: age,
+//     gender: gender,
+//   };
+// };
+
+console.log(createPerson("Zodiac Hasbro", 56, "male"));
+
+// writing concise declarative functions
+const bicycle = {
+  gear: 2,
+  setGear(newGear) {
+    //way of declaring func in object
+    "use strict";
+    this.gear = newGear;
+  },
+};
+
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+// using class syntax to define a constructor function
+class spaceShuttle {
+  constructor(targetPlanet) {
+    this.targetPlanet = targetPlanet;
+  }
+}
+
+var zeus = new spaceShuttle("jupiter");
+console.log(zeus.targetPlanet);
+
+// for vegetables class
+function makeClass() {
+  class vegetable {
+    constructor(name) {
+      this.name = name;
+    }
+  }
+  return vegetable;
+}
+const vegetable = makeClass();
+const carrot = new vegetable("carrot");
+console.log(carrot.name);
+
+// using getters and setters to control access to an object
+class Book {
+  constructor(author) {
+    this.author = author;
+  }
+
+  //getter
+  get writer() {
+    return this._author;
+  }
+  //setter
+  set writer(updatedAuthor) {
+    this._author = updatedAuthor;
+  }
+}
+
+function makeClass() {
+  class Thermostat {
+    constructor(temp) {
+      this._temp = (5 / 9) * (temp - 32);
+    }
+    get temperature() {
+      return this._temp;
+    }
+    set temperature(updatedTemp) {
+      this._temp = updatedTemp;
+    }
+  }
+  return Thermostat;
+}
+
+const Thermostat = makeClass();
+const thermos = new Thermostat(76);
+let temp = thermos.temperature;
+thermos.temperature = 26;
+temp = thermos.temperature;
+console.log(temp);
+
+// understanding d difference btw import and require--------
+// import { capitalizeString } from "./string_func";
+// const cap = capitalizeString("hello");
+
+// console.log(cap);
+
+// use export to reuse a code block-------
+// const capitalizeString = (string) => {
+//   return string.charAt(0).toUpperCase() + string.slice(1);
+// };
+// export { capitalizeString };
+// const foo = "bar";
+// const bar = "foo";
+
+// use * to import everything from a file----------
+// import * as capitalizeString from "./string_func";
+
+//create an export fallback with export default-------
+// export default function subtract(x, y) {
+//   return x - y;
+// }
+//import a default export-------------------
+// import subtract from "./string_func"; //we don't use curly brces when we are importing from export default
+// subtract(7, 4);
