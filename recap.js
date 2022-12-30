@@ -18,3 +18,23 @@ console.log(mystr);
  \b backspace
  \f form feed
  ***/
+
+ //push opertor------------------------------------
+var array = ["send", "sleep", "car"];
+array.push(["happy"], "joy");
+console.log(array);
+
+// pop operator----------------------------------
+var removedArray = array.pop();
+console.log(array);
+console.log(removedArray);
+
+// shift operator---------------------------
+var shiftedArray = array.shift();
+console.log(array);
+console.log(shiftedArray);
+
+// unshift operator--------------------------
+var shiftedArray = array.unshift("jefferey");
+console.log(array);
+console.log(shiftedArray);
