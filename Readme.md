@@ -6,3 +6,4 @@
 - Added operators like shift, unshift, pop and push.
 - Functions, immitating queues, counting cards and booleans.
 - All about classes and objects with how to work with classes.
+- Loops: Types and uses in javascript also making a profile lookup.
